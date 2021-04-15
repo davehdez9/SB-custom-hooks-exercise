@@ -9,7 +9,15 @@ function PokemonSelect({ add, pokemon = pokemonList }) {
     setPokeIdx(evt.target.value);
   };
 
-  return (
+
+  const handleButtonSelect = () => {
+    // console.log(pokemon[pokeIdx])
+    // pokeSelected.setPokeSelected(pokemon[pokeIdx])
+    
+    return add(pokemon[pokeIdx])
+  }
+
+   return (
     <div>
       <select onChange={handleChange}>
         {pokemon.map((p, idx) => (
@@ -18,7 +26,9 @@ function PokemonSelect({ add, pokemon = pokemonList }) {
           </option>
         ))}
       </select>
-      <button onClick={() => add(pokemon[pokeIdx])}>Catch one!</button>
+
+      {/* <button onClick={() => add(pokemon[pokeIdx])}>Catch one!</button> */}
+      <button onClick={() => handleButtonSelect()}>Catch one!</button>
       <button onClick={() => add(choice(pokemon))}>I'm feeling lucky</button>
     </div>
   );
